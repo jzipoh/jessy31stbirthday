@@ -23,6 +23,7 @@
       background:linear-gradient(135deg,#f8d7ff,#dce8ff);
       font-family:'Poppins',sans-serif;
       padding:20px;
+      overflow:hidden;
     }
 
     @keyframes fadeIn{
@@ -52,6 +53,8 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.15);
       text-align:center;
       animation:fadeIn 0.8s ease;
+      max-height:90vh;
+      overflow-y:auto;
     }
 
     .page.active{
@@ -102,6 +105,13 @@
       margin-top:20px;
       color:#777;
       font-size:0.95rem;
+    }
+
+    video{
+      width:100%;
+      border-radius:20px;
+      margin-top:10px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.12);
     }
 
     @media(max-width:600px){
@@ -196,12 +206,38 @@
         JZ
       </div>
 
+      <div class="tap">
+        tap again ❤️
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+
+    <div class="title">
+      Our Memories ❤️
+    </div>
+
+    <video controls autoplay loop>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="subtitle" style="margin-top:20px;">
+      Thank you for every little moment with me ✨
+    </div>
+
+    <div class="tap">
+      tap again to restart ❤️
     </div>
 
   </div>
 
 </div>
 
+<!-- BACKGROUND MUSIC -->
 <audio id="bg-music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -223,9 +259,16 @@
 
       currentPage = 2;
 
-    } else {
+    } else if(currentPage === 2){
 
       document.getElementById('page2').classList.remove('active');
+      document.getElementById('page3').classList.add('active');
+
+      currentPage = 3;
+
+    } else {
+
+      document.getElementById('page3').classList.remove('active');
       document.getElementById('page1').classList.add('active');
 
       currentPage = 1;
