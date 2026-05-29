@@ -105,7 +105,10 @@
 
 <body>
 
-  <div class="card">
+<div class="book" onclick="flipCard()">
+
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
 
     <div class="title">
       Happy 31st Birthday ❤️
@@ -115,8 +118,16 @@
       Happy 4th Anniversary, my love
     </div>
 
-    <!-- CHANGE THIS PHOTO -->
     <img src="photo.jpeg" alt="Our Photo" class="photo">
+
+    <div style="margin-top:20px; color:#777;">
+      tap to open ✨
+    </div>
+
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
 
     <div class="message">
 
@@ -164,25 +175,48 @@
         I truly love you, and I hope we get to share many more birthdays, anniversaries, trips, memories, and little moments together ❤️
       </p>
 
-    </div>
-
-    <div class="ending">
-      Forever your annoying boyfriend,<br>
-      JZ
-    </div>
+      <div class="ending">
+        Forever your annoying boyfriend,<br>
+        JZ
+      </div>
 
     </div>
 
-  <audio id="bg-music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+  </div>
 
-  <script>
-    document.body.addEventListener('click', function () {
-      const music = document.getElementById('bg-music');
-      music.play();
-    }, { once: true });
-  </script>
+</div>
+
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+  let currentPage = 1;
+
+  function flipCard() {
+
+    const music = document.getElementById('bg-music');
+
+    music.play();
+
+    if(currentPage === 1){
+
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+
+      currentPage = 2;
+
+    } else {
+
+      document.getElementById('page2').classList.remove('active');
+      document.getElementById('page1').classList.add('active');
+
+      currentPage = 1;
+    }
+  }
+
+</script>
 
 </body>
 </html>
