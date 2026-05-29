@@ -25,18 +25,6 @@
       padding:20px;
     }
 
-    .card{
-      width:100%;
-      max-width:500px;
-      background:rgba(255,255,255,0.25);
-      backdrop-filter:blur(12px);
-      border-radius:25px;
-      padding:25px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.15);
-      text-align:center;
-      animation:fadeIn 1.2s ease;
-    }
-
     @keyframes fadeIn{
       from{
         opacity:0;
@@ -46,6 +34,28 @@
         opacity:1;
         transform:translateY(0);
       }
+    }
+
+    .book{
+      width:100%;
+      max-width:500px;
+      position:relative;
+      cursor:pointer;
+    }
+
+    .page{
+      display:none;
+      background:rgba(255,255,255,0.25);
+      backdrop-filter:blur(12px);
+      border-radius:25px;
+      padding:25px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      text-align:center;
+      animation:fadeIn 0.8s ease;
+    }
+
+    .page.active{
+      display:block;
     }
 
     .title{
@@ -88,6 +98,12 @@
       color:#ff4f81;
     }
 
+    .tap{
+      margin-top:20px;
+      color:#777;
+      font-size:0.95rem;
+    }
+
     @media(max-width:600px){
 
       .title{
@@ -120,7 +136,7 @@
 
     <img src="photo.jpeg" alt="Our Photo" class="photo">
 
-    <div style="margin-top:20px; color:#777;">
+    <div class="tap">
       tap to open ✨
     </div>
 
