@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy 31st Birthday ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f8d7ff, #d9e7ff);
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      color: rgba(255,255,255,0.7);
+      animation: float 10s linear infinite;
+      font-size: 20px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .book {
+      width: 90%;
+      max-width: 420px;
+      height: 650px;
+      position: relative;
+      perspective: 1500px;
+      cursor: pointer;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 25px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      padding: 25px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #333;
+      animation: flipIn 0.8s ease;
+    }
+
+    .page.active {
+      display: flex;
+    }
+
+    @keyframes flipIn {
+      from {
+        transform: rotateY(-90deg);
+        opacity: 0;
+      }
+      to {
+        transform: rotateY(0deg);
+        opacity: 1;
+      }
+    }
+
+    .title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #ff4f81;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    .page img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    }
+
+    .text-block {
+      width: 100%;
+      text-align: left;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .text-block h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #ff4f81;
+    }
+
+    .text-block p {
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .magic-letter {
+      opacity: 0;
+      display: inline-block;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 5px rgba(255,105,180,0.3);
+    }
+
+    .magic-letter.visible {
+      opacity: 1;
+      text-shadow: 0 0 12px rgba(255,105,180,0.9);
+    }
+
+    .polaroid {
+      margin-top: 20px;
+      background: white;
+      padding: 10px 10px 20px;
+      border-radius: 12px;
+      transform: rotate(-2deg);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      width: 220px;
+    }
+
+    .polaroid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+      text-align: center;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .hint {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.85rem;
+      color: #777;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    @media(max-width: 500px) {
+      .book {
+        height: 90vh;
+      }
+
+      .title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating Hearts -->
+  <script>
+    for(let i=0; i<20; i++){
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random()*100 + 'vw';
+      heart.style.animationDuration = (Math.random()*5 + 5) + 's';
+      heart.style.fontSize = (Math.random()*20 + 10) + 'px';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <div class="book" onclick="flipPage()">
+
+    <!-- PAGE 1 -->
+    <div class="page active">
+      <div class="title">
+        Happy 31st Birthday ❤️<br>
+        Happy 4th Anniversary
+      </div>
+
+      <img src="coverphoto.jpg" alt="Cover Photo">
+
+      <div class="subtitle">
+        4 years, countless memories,<br>
+        still my favorite person.
+      </div>
+
+      <div class="hint">
+        tap anywhere to flip ✨
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page">
+
+      <div class="text-block">
+        <h2>Dear Love,</h2>
+
+        <p id="page2-text">
+Happy 31st Birthday, my love.<br>
+And happy 4th anniversary to us ❤️<br><br>
+
+During our recent trip together,<br>
+I realized something I should have realized long ago.<br><br>
+
+Somewhere along the way,<br>
+I got too comfortable with your love.<br>
+So comfortable that I stopped noticing<br>
+the little things you do for me every single day.<br><br>
+
+The way you remind me to take care of my health.<br>
+The way you always care about how I look.<br>
+The way you worry whether I’ve eaten,<br>
+rested enough, or slept properly.<br>
+The way you stay beside me,<br>
+even when I become stressed, stubborn, or difficult.<br><br>
+
+I don’t say this enough,<br>
+but thank you.<br><br>
+
+Looking back at our trip,<br>
+I realized I could have treated you better.<br>
+And I’m sorry for the moments<br>
+where I made you feel otherwise.<br><br>
+
+Without realizing it,<br>
+you became my comfort,<br>
+my peace,<br>
+and honestly…<br>
+the happy sunshine of my life ☀️<br><br>
+
+Thank you for staying.<br>
+Thank you for loving me.<br>
+And thank you for making life feel softer,<br>
+warmer,<br>
+and happier every single day ❤️<br><br>
+
+Forever your annoying boyfriend,<br>
+JZ
+        </p>
+
+      </div>
+
+      <div class="polaroid">
+        <img src="memory.jpg" alt="Memory Photo">
+        <div class="caption">
+          My favorite travel partner ❤️
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page">
+      <video autoplay muted loop playsinline>
+        <source src="tripvideo.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page">
+
+      <div class="title">
+        Future Plans ✨
+      </div>
+
+      <div style="line-height:2; font-size:1.1rem;">
+        More trips together 🌎<br>
+        More midnight talks 🌙<br>
+        More food adventures 🍜<br>
+        More annoying each other 😌<br>
+        More memories.<br>
+        More us ❤️
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MUSIC -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+
+    const pages = document.querySelectorAll('.page');
+    const audio = document.getElementById('bgMusic');
+
+    let current = 0;
+    let musicStarted = false;
+
+    function flipPage() {
+
+      pages[current].classList.remove('active');
+
+      current = (current + 1) % pages.length;
+
+      pages[current].classList.add('active');
+
+      if (!musicStarted) {
+        audio.play().catch(() => {});
+        musicStarted = true;
+      }
+
+      if(current === 1){
+        resetMagicText(page2Text);
+        showMagicText(page2Text, 15);
+      }
+    }
+
+    const page2Text = document.getElementById('page2-text');
+
+    function wrapLettersWithBreaks(element) {
+
+      const lines = element.innerHTML.split('<br>');
+      element.innerHTML = '';
+
+      lines.forEach((line, idx) => {
+
+        for (let char of line) {
+
+          const span = document.createElement('span');
+
+          if(char === ' '){
+            span.innerHTML = '&nbsp;';
+          } else {
+            span.textContent = char;
+          }
+
+          span.classList.add('magic-letter');
+
+          element.appendChild(span);
+        }
+
+        if(idx < lines.length - 1){
+          element.appendChild(document.createElement('br'));
+        }
+      });
+    }
+
+    async function showMagicText(element, speed = 20){
+
+      const letters = element.querySelectorAll('.magic-letter');
+
+      for(let i=0; i<letters.length; i++){
+
+        letters[i].classList.add('visible');
+
+        await new Promise(r => setTimeout(r, speed));
+      }
+    }
+
+    function resetMagicText(element){
+
+      const letters = element.querySelectorAll('.magic-letter');
+
+      letters.forEach(letter => {
+        letter.classList.remove('visible');
+      });
+    }
+
+    window.onload = () => {
+      wrapLettersWithBreaks(page2Text);
+    }
+
+  </script>
+
+</body>
+</html>
